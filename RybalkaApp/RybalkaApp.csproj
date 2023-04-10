@@ -1,0 +1,52 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\6Z2TGT.jpg" />
+    <None Remove="Resources\EJ9GSG.jpg" />
+    <None Remove="Resources\hu2aWVa3v40.jpg" />
+    <None Remove="Resources\icon.ico" />
+    <None Remove="Resources\L4Y4MS.jpg" />
+    <None Remove="Resources\logo.png" />
+    <None Remove="Resources\M3UEHS.jpg" />
+    <None Remove="Resources\M6XARO.jpg" />
+    <None Remove="Resources\MGIP6R.jpg" />
+    <None Remove="Resources\PCIS4E.jpg" />
+    <None Remove="Resources\picture.png" />
+    <None Remove="Resources\PILLFW.jpg" />
+    <None Remove="Resources\SOIPEQ.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.15" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="6.0.15" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.15">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="6.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\6Z2TGT.jpg" />
+    <Resource Include="Resources\EJ9GSG.jpg" />
+    <Resource Include="Resources\hu2aWVa3v40.jpg" />
+    <Resource Include="Resources\icon.ico" />
+    <Resource Include="Resources\L4Y4MS.jpg" />
+    <Resource Include="Resources\logo.png" />
+    <Resource Include="Resources\M3UEHS.jpg" />
+    <Resource Include="Resources\M6XARO.jpg" />
+    <Resource Include="Resources\MGIP6R.jpg" />
+    <Resource Include="Resources\PCIS4E.jpg" />
+    <Resource Include="Resources\picture.png" />
+    <Resource Include="Resources\PILLFW.jpg" />
+    <Resource Include="Resources\SOIPEQ.jpg" />
+  </ItemGroup>
+
+</Project>

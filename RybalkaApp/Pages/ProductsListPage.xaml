@@ -1,0 +1,95 @@
+﻿<Page x:Class="RybalkaApp.Pages.ProductsListPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:RybalkaApp.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ProductsListPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="64"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="64"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <TextBox x:Name="TbxSearch" Margin="4"
+                     TextChanged="TbxSearch_TextChanged"/>
+            <ComboBox x:Name="CmbxSort" Grid.Column="1" Margin="4"
+                      SelectionChanged="CmbxSort_SelectionChanged">
+                <ComboBoxItem>Без сортировки</ComboBoxItem>
+                <ComboBoxItem>Стоимость по возрастанию</ComboBoxItem>
+                <ComboBoxItem>Стоимость по убыванию</ComboBoxItem>
+            </ComboBox>
+            <ComboBox x:Name="CmbxFilter" Grid.Column="2" Margin="4"
+                      SelectionChanged="CmbxFilter_SelectionChanged"/>
+            <TextBlock Grid.Column="3" x:Name="TbkCountPorducts" />
+        </Grid>
+
+        <ListView Grid.Row="1" x:Name="LvProducts"
+                  SelectionMode="Single"
+                  SelectionChanged="LvProducts_SelectionChanged"
+                  ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel />
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderThickness="1" BorderBrush="Black">
+                        <Grid Width="700" Height="120"
+                              Background="{Binding colorBackgroundProduct}">
+                            <Grid Margin="8">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="3*"/>
+                                    <ColumnDefinition Width="4*"/>
+                                    <ColumnDefinition Width="2*" />
+                                </Grid.ColumnDefinitions>
+                                <Image Source="{Binding photoPath, FallbackValue={StaticResource photoNull}}" />
+                                <StackPanel Grid.Column="1" Orientation="Vertical">
+                                    <TextBlock Text="{Binding ProductName}" />
+                                    <TextBlock Text="{Binding ProductDescription}" />
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="Производитель: " />
+                                        <TextBlock Text="{Binding ProductManufacturer.ProductManufacturerName}" />
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="Цена: " />
+                                        <TextBlock Text="{Binding ProductCost}" />
+                                    </StackPanel>
+                                </StackPanel>
+                                <StackPanel Grid.Column="2" Orientation="Horizontal">
+                                    <TextBlock Text="На складе: " />
+                                    <TextBlock Text="{Binding ProductQuantityInStock}" />
+                                </StackPanel>
+                            </Grid>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+        </ListView>
+
+        <StackPanel Grid.Row="2"
+                    Orientation="Horizontal"
+                    x:Name="SpForAdmin">
+            <Button x:Name="BtnAddProduct" Content="Добавить"
+                    Margin="4" Click="BtnAddProduct_Click" />
+            <Button x:Name="BtnEditProduct" Content="Редактировать"
+                    Margin="4" Click="BtnEditProduct_Click"/>
+            <!--<Button x:Name="BtnRemoveProduct" Content="Удалить"
+                    Margin="4" Click="BtnRemoveProduct_Click"/>-->
+        </StackPanel>
+    </Grid>
+</Page>
